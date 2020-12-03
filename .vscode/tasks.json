@@ -10,7 +10,7 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "source set_build_paths.sh && make all && dsymutil src/skeleton",
+            "command": "source set_build_paths.sh && make all && dsymutil src/bytewords",
             "problemMatcher": { "base": "$gcc", "fileLocation": ["relative", "${workspaceRoot}/src"] },
             "group": {
                 "kind": "build",

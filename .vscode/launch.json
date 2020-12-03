@@ -6,7 +6,7 @@
             "name": "Build and Debug",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceFolder}/src/skeleton",
+            "program": "${workspaceFolder}/src/bytewords",
             "args": [ ],
             "cwd": "${workspaceFolder}/src",
             "preLaunchTask": "Build"

@@ -1,5 +1,5 @@
 //
-//  skeleton.cpp
+//  bytewords.cpp
 //
 //  Copyright © 2020 by Blockchain Commons, LLC
 //  Licensed under the "BSD-2-Clause Plus Patent License"
@@ -13,7 +13,7 @@
 using namespace std;
 
 int main( int argc, char *argv[] ) {
-    cout << "Welcome to skeleton." << endl;
+    cout << "Welcome to bytewords." << endl;
     return 0;
 
     auto p = Params::parse(argc, argv);

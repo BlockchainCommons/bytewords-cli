@@ -25,8 +25,8 @@ RED=`tput setaf 1`
 GREEN=`tput setaf 2`
 RESET=`tput sgr0`
 
-.PHONY: all clean skeleton check
-all clean skeleton check:
+.PHONY: all clean bytewords check
+all clean bytewords check:
 	source set_build_paths.sh && cd src && $(MAKE) $@
 
 .PHONY: install uninstall

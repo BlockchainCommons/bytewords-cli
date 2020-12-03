@@ -1,4 +1,4 @@
-# 💀 skeleton
+# 💀 bytewords
 
 **Version 0.1.0**<br/>**XXX XX, 202X**
 

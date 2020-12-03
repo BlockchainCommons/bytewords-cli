@@ -57,7 +57,7 @@ cp libargp.a ${SYSROOT}/lib/
 cp argp.h ${SYSROOT}/include/
 popd
 
-echo "${BLUE}== skeleton ==${RESET}"
+echo "${BLUE}== bytewords ==${RESET}"
 
 ./configure
 make check

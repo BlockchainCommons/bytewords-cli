@@ -2,8 +2,8 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([bc-skeleton-cli], [0.1.0])
-AC_CONFIG_SRCDIR([src/skeleton.cpp])
+AC_INIT([bc-bytewords-cli], [0.1.0])
+AC_CONFIG_SRCDIR([src/bytewords.cpp])
 AC_CONFIG_HEADERS([src/config.h])
 
 # Checks for programs.

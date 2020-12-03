@@ -32,7 +32,7 @@ COMPILER = g++
 CFLAGS += --debug -O0
 CXXFLAGS += -std=c++17 -stdlib=libc++ --debug -O0 -I"$(CBOR_DIR)/include"
 
-toolname = skeleton
+toolname = bytewords
 
 .PHONY: all
 all: $(toolname)

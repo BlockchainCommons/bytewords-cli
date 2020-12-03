@@ -1,3 +1,3 @@
-# 💀 Blockchain Commons bc-skeleton-cli
+# 💀 Blockchain Commons bc-bytewords-cli
 
 ## Introduction
