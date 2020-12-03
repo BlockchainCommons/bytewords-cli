@@ -1,0 +1,6 @@
+[submodule "deps/bc-bytewords"]
+	path = deps/bc-bytewords
+	url = https://github.com/BlockchainCommons/bc-bytewords.git
+[submodule "deps/argp-standalone"]
+	path = deps/argp-standalone
+	url = https://github.com/BlockchainCommons/argp-standalone.git
