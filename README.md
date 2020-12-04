@@ -18,7 +18,7 @@ Bytewords is useful, for example, when recording a cryptographic seed as a serie
 
 The Bytewords encoding is detailed [here](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-012-bytewords.md).
 
-Bytewords is used to encode CBOR-structured binary as part of the specification for Universal Resources (URs) defined [here](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md).
+Bytewords is used to encode CBOR-structured binary as part of the specification for Uniform Resources (URs) defined [here](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md).
 
 ## Status - First Testing Release
 
