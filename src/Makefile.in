@@ -42,11 +42,11 @@ OBJS = \
 	utils.o \
 	params.o
 
-LDFLAGS += -lstdc++ -largp -lbc-bytewords
+LDFLAGS += -lstdc++ -largp -lbc-crypto-base -lbc-bytewords
 
 $(toolname): $(OBJS)
 
-$(toolname).o: params.hpp
+$(toolname).o: params.hpp utils.hpp
 utils.o: utils.hpp
 params.o: params.hpp utils.hpp config.h
 

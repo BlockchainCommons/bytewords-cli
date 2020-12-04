@@ -19,11 +19,20 @@
 
 #define MAX_ARGS 256
 
+enum Format {
+    standard,
+    uri,
+    minimal,
+    bin,
+    hex
+};
+
 class RawParams {
 public:
-    std::string seed;
+    std::string input_format;
+    std::string output_format;
 
-    string_vector args;
+    StringVector args;
 };
 
 class Params {
@@ -32,16 +41,23 @@ public:
     ~Params();
 
     void validate();
+    void process();
 
     RawParams raw;
-    string_vector input;
-    std::string output;
+    
+    Format input_format = bin;
+    ByteVector input;
+
+    ByteVector data;
+
+    Format output_format = standard;
+    ByteVector output;
+
     struct argp_state* state;
 
     static Params* parse( int argc, char *argv[] );
-    void read_args_from_stdin();
 
-    std::string get_one_argument();
-    std::string get_combined_arguments();
-    string_vector get_multiple_arguments();
+private:
+    void process_input();
+    void process_output();
 };

@@ -9,24 +9,24 @@
 #include <stdexcept>
 
 #include "params.hpp"
+#include "utils.hpp"
 
 using namespace std;
 
 int main( int argc, char *argv[] ) {
-    cout << "Welcome to bytewords." << endl;
-    return 0;
-
     auto p = Params::parse(argc, argv);
 
     try {
-        // p->input_format->process_input(p);
-        // p->output_format->process_output(p);
+        p->process();
 
         if(p->output.empty()) {
             throw runtime_error("An internal error occurred.");
         }
 
-        cout << p->output << endl;
+        write_data_to_stdout(p->output);
+        if(p->output_format != bin) {
+            cout << endl;
+        }
     } catch(exception &e) {
         cerr << argv[0] << ": " << e.what() << endl;
         exit(1);
