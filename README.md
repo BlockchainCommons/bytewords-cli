@@ -23,6 +23,7 @@ Bytewords is used to encode CBOR-structured binary as part of the specification 
 ## Status - First Testing Release
 
 This release is feature complete and ready for testing.
+
 ## Dependencies
 
 `bytewords` requires the following Blockchain Commons libraries:
