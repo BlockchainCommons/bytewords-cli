@@ -10,9 +10,11 @@
 
 This repo contains `bytewords`, a command line tool used to explore, test, and exercise Blockchain Commons' C reference implementation of the **Bytewords** encoding.
 
+**NOTE:** In this document the Bytewords encoding method is referred to with a capitalized first letter, and the CLI tool `bytewords` is referred to in `code voice`.
+
 Bytewords is a method for encoding arbitary binary data in plain text as a sequence of common four-letter English words. Bytewords defines exactly 256 such words, one for each possible combination of bits in a byte (octet).
 
-Bytewords is useful, for example, when recording a cryptographic seed as a series of words engraved on permanent media such as a tungsten plate; a procedure common in the cryptocurrency community. Bytewords can be easily used in self-contained URIs, or shortened further to just the first and last letter of each word, which is comparable to hexadecimal but less prone to human transcription error. Bytewords also adds a CRC32 checksum for error detection.
+Bytewords is useful, for example, when recording a cryptographic seed as a series of words engraved on permanent media such as a tungsten plate; a procedure common in the cryptocurrency community. Bytewords can be easily used in self-contained URIs, or shortened further to just the first and last letter of each word, which is comparable to hexadecimal but less prone to human transcription error. For error detection Bytewords also adds a CRC32 checksum.
 
 The Bytewords encoding is detailed [here](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-012-bytewords.md).
 
@@ -68,6 +70,8 @@ $ make
 
 ## Usage
 
+### Input and Output
+
 `bytewords` can take its input from either the command line arguments or from STDIN. 
 
 Input on the command line. Note that the string provided explicitly encodes a newline character at the end.
@@ -86,6 +90,8 @@ Hello
 fund inch jazz jazz jowl back each mint epic calm
 ```
 
+`bytewords` writes its output to STDOUT.
+
 Input from a file and output back to another file:
 
 ```
@@ -97,6 +103,8 @@ $ bytewords <input.txt >output.txt
 $ cat output.txt
 fund inch jazz jazz jowl back each mint epic calm
 ```
+
+### Formats
 
 The five possible input and output formats are:
 
@@ -114,7 +122,21 @@ By default `bytewords` takes binary data as input and encodes it in the "standar
 bytewords -i bin -o standard ...
 ```
 
-`bytewords` writes its output to STDOUT.
+### Case
+
+Input of textual formats to `bytewords` is case-insensitive. Output of textual formats is lower case by default, but can be forced to upper case with the `--capitalize` option. No case conversion is ever performed on binary input or output data.
+
+```
+$ bytewords --capitalize $'Hello\n'
+FUND INCH JAZZ JAZZ JOWL BACK EACH MINT EPIC CALM
+```
+
+`--capitalize` is ignored for binary output.
+
+```
+$ bytewords --capitalize -i standard -o bin FUND INCH JAZZ JAZZ JOWL BACK EACH MINT EPIC CALM
+Hello
+```
 
 ## Examples
 
@@ -156,6 +178,13 @@ $ bytewords -i minimal -o hex fdihjzjzjlbkehmteccm
 48656c6c6f0a
 ```
 
+Strings that are not well-formed Bytewords or where the CRC32 checksum does not match are rejected.
+
+```
+$ bytewords -i minimal -o hex fdihjzjzjlbkehmtecec
+bytewords: Invalid Bytewords.
+```
+
 ## Notes for Maintainers
 
 Before accepting a PR that can affect build or unit tests, make sure the following sequence of commands succeeds:
@@ -171,8 +200,7 @@ $ make distclean
 
 ## Related Projects
 
-* [LetheKit](https://github.com/BlockchainCommons/bc-lethekit) is a parallel project that uses many of the same libraries, but in hardware.
-* [URKit](https://github.com/BlockchainCommons/URKit) is another example of our [bc-ur](https://github.com/BlockchainCommons/bc-ur) universal-reference library.
+* [bc-ur](https://github.com/BlockchainCommons/bc-ur) is our C++ Uniform Resource (UR) library. It contains a its own C++ implementation of Bytewords.
 
 ## Origin, Authors, Copyright & Licenses
 

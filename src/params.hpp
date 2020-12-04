@@ -31,6 +31,7 @@ class RawParams {
 public:
     std::string input_format;
     std::string output_format;
+    bool capitalize = false;
 
     StringVector args;
 };
@@ -53,6 +54,8 @@ public:
     Format output_format = standard;
     ByteVector output;
 
+    bool capitalize;
+
     struct argp_state* state;
 
     static Params* parse( int argc, char *argv[] );
@@ -60,4 +63,5 @@ public:
 private:
     void process_input();
     void process_output();
+    ByteVector encode(Bytewords::Style style, const ByteVector &data);
 };

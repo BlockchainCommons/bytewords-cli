@@ -36,6 +36,7 @@ std::string join(const StringVector &strings, const std::string &separator);
 StringVector split(const std::string& s, const char& separator);
 
 std::string to_lower(const std::string& s);
+std::string to_upper(const std::string& s);
 bool has_prefix(const std::string& s, const std::string& prefix);
 
 template<typename T>

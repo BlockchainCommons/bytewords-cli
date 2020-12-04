@@ -152,6 +152,12 @@ string to_lower(const string& s) {
     return out;
 }
 
+string to_upper(const string& s) {
+    string out;
+    transform(s.begin(), s.end(), back_inserter(out), ::toupper);
+    return out;
+}
+
 bool has_prefix(const string& s, const string& prefix) {
     if(s.length() < prefix.length()) return false;
     return string(s.begin(), s.begin() + prefix.length()) == prefix;

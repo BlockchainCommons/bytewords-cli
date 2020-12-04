@@ -34,6 +34,8 @@ static Format parse_format(const string& s) {
 }
 
 void Params::validate() {
+    capitalize = raw.capitalize;
+
     if(raw.input_format.empty()) {
         input_format = Format::bin;
     } else {
@@ -73,16 +75,22 @@ void Params::process_input() {
     }
 }
 
+ByteVector Params::encode(Bytewords::Style style, const ByteVector &data) {
+    auto s = Bytewords::encode(style, data);
+    auto s2 = capitalize ? to_upper(s) : s;
+    return string_to_data(s2);
+}
+
 void Params::process_output() {
     switch (output_format) {
     case ::standard:
-        output = string_to_data(Bytewords::encode(Bytewords::Style::standard, data));
+        output = encode(Bytewords::Style::standard, data);
         break;
     case ::uri:
-        output = string_to_data(Bytewords::encode(Bytewords::Style::uri, data));
+        output = encode(Bytewords::Style::uri, data);
         break;
     case ::minimal:
-        output = string_to_data(Bytewords::encode(Bytewords::Style::minimal, data));
+        output = encode(Bytewords::Style::minimal, data);
         break;
     case ::bin:
         output = data;
@@ -108,6 +116,7 @@ static int parse_opt(int key, char* arg, struct argp_state* state) {
             case ARGP_KEY_INIT: break;
             case 'i': raw.input_format = arg; break;
             case 'o': raw.output_format = arg; break;
+            case 'c': raw.capitalize = true; break;
             case ARGP_KEY_ARG: raw.args.push_back(arg); break;
             case ARGP_KEY_END: {
                 p->validate();
@@ -123,6 +132,7 @@ static int parse_opt(int key, char* arg, struct argp_state* state) {
 struct argp_option options[] = {
     {"input-format", 'i', "standard|uri|minimal|hex|bin", 0, "Input format. (default `bin`)."},
     {"output-format", 'o', "standard|uri|minimal|hex|bin", 0, "Output format. (default `standard`)."},
+    {"capitalize", 'c', nullptr, 0, "If present, text output is capitalized."},
 
     { 0 }
 };
@@ -138,25 +148,3 @@ Params* Params::parse( int argc, char *argv[] ) {
     argp_parse( &argp, argc, argv, 0, 0, p );
     return p;
 }
-
-// string Params::get_one_argument() {
-//     if(input.size() != 1) {
-//         throw runtime_error("Only one argument accepted.");
-//     }
-//     return input[0];
-// }
-
-// string Params::get_combined_arguments() {
-//     return join(input, " ");
-// }
-
-// StringVector Params::get_multiple_arguments() {
-//     return input;
-// }
-
-// void Params::read_args_from_stdin() {
-//     string line;
-//     while(getline(cin, line)) {
-//         raw.args.push_back(line);
-//     }
-// }
