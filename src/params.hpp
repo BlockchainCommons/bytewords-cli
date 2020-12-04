@@ -54,9 +54,9 @@ public:
     Format output_format = standard;
     ByteVector output;
 
-    bool capitalize;
+    bool capitalize = false;
 
-    struct argp_state* state;
+    struct argp_state* state = nullptr;
 
     static Params* parse( int argc, char *argv[] );
 
