@@ -64,7 +64,7 @@ uninstall:
 
 .PHONY: check
 check: $(toolname)
-	./$(toolname)
+	./test.sh ./$(toolname)
 
 .PHONY: clean
 clean:
