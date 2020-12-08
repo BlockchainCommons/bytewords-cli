@@ -1,10 +1,9 @@
 <p style="font-size: 3em;">🅱🆈🆃🅴🆆🅾🆁🅳🆂</p>
 
 # Blockchain Commons bc-bytewords-cli
+### _by Wolf McNally and Christopher Allen_
 
 **Version 0.1.0**<br/>**December 3, 2020**
-
-*Copyright © 2020 by Blockchain Commons, LLC*<br/>*Licensed under the "BSD-2-Clause Plus Patent License"*
 
 ## Introduction
 
