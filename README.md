@@ -5,6 +5,8 @@
 
 **Version 0.1.0**<br/>**December 3, 2020**
 
+* <img src="https://github.com/BlockchainCommons/crypto-commons/blob/master/images/logos/crypto-commons.png" width=30 valign="bottom"> ***part of the [crypto commons](https://github.com/BlockchainCommons/crypto-commons/master/README.md) technology family***
+
 ## Introduction
 
 This repo contains `bytewords`, a command line tool used to explore, test, and exercise Blockchain Commons' C reference implementation of the **Bytewords** encoding.
