@@ -1,11 +1,11 @@
 <p style="font-size: 3em;">🅱🆈🆃🅴🆆🅾🆁🅳🆂</p>
 
 # Blockchain Commons bc-bytewords-cli
-### _by Wolf McNally and Christopher Allen_
+### _by [Wolf McNally](https://www.github.com/wolfmcnally) and [Christopher Allen](https://www.github.com/ChristopherA)_
 
 **Version 0.1.0**<br/>**December 3, 2020**
 
-* <img src="https://github.com/BlockchainCommons/crypto-commons/blob/master/images/logos/crypto-commons-simple.png" width=50 valign="bottom"> ***part of the [crypto commons](https://github.com/BlockchainCommons/crypto-commons/master/README.md) technology family***
+* <img src="https://github.com/BlockchainCommons/crypto-commons/blob/master/images/logos/crypto-commons-simple.png" width=50 valign="bottom"> ***part of the [crypto commons](https://github.com/BlockchainCommons/crypto-commons/blob/master/README.md) technology family***
 
 ## Introduction
 
