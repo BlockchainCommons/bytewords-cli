@@ -1,6 +1,6 @@
 <p style="font-size: 3em;">🅱🆈🆃🅴🆆🅾🆁🅳🆂</p>
 
-# Blockchain Commons bc-bytewords-cli
+# Blockchain Commons bytewords-cli
 ### _by [Wolf McNally](https://www.github.com/wolfmcnally) and [Christopher Allen](https://www.github.com/ChristopherA)_
 
 **Version 0.1.0**<br/>**December 3, 2020**
