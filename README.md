@@ -7,6 +7,8 @@
 
 * <img src="https://github.com/BlockchainCommons/crypto-commons/blob/master/images/logos/crypto-commons-super-simple.png" width=16 valign="bottom">&nbsp;&nbsp; ***part of the [crypto commons](https://github.com/BlockchainCommons/crypto-commons/blob/master/README.md) technology family***
 
+![Build](https://github.com/BlockchainCommons/bytewords-cli/workflows/ci/badge.svg)
+
 ## Introduction
 
 This repo contains `bytewords`, a command line tool used to explore, test, and exercise Blockchain Commons' C reference implementation of the **Bytewords** encoding.
