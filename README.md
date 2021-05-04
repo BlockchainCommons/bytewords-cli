@@ -59,6 +59,32 @@ $ ./build.sh
 $ sudo make install
 ```
 
+### Build on Linux
+
+Make sure you have `llvm`/`clang`, `libc++` and `libc++abi` installed, all with
+a minimum recommended version 10.
+
+#### Build on Ubuntu and Debian
+
+```bash
+$ sudo apt install build-essential
+
+$ wget https://apt.llvm.org/llvm.sh
+$ chmod +x llvm.sh
+$ sudo apt install lsb-release wget software-properties-common
+$ sudo ./llvm.sh 10  # version 10
+
+$ sudo apt-get install libc++-10-dev libc++abi-10-dev
+```
+
+```bash
+$ sudo apt-get install git
+$ git clone https://github.com/BlockchainCommons/bytewords-cli.git
+$ cd seedtool-cli/
+$ export CC="clang-10" && export CXX="clang++-10" && ./build.sh
+$ sudo make install
+```
+
 ## Incremental Build Instructions
 
 If you wish to make changes to the source code and rebuild:
