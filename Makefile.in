@@ -27,11 +27,11 @@ RESET=`tput sgr0`
 
 .PHONY: all clean bytewords check lint
 all clean bytewords check lint:
-	source set_build_paths.sh && cd src && $(MAKE) $@
+	cd src && $(MAKE) $@
 
 .PHONY: install uninstall
 install uninstall:
-	source set_build_paths.sh && cd src && $(MAKE) $@
+	cd src && $(MAKE) $@
 
 config.status: configure
 	./config.status --recheck

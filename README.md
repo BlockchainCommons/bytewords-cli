@@ -1,11 +1,13 @@
 <p style="font-size: 3em;">🅱🆈🆃🅴🆆🅾🆁🅳🆂</p>
 
-# Blockchain Commons bc-bytewords-cli
+# Blockchain Commons bytewords-cli
 ### _by [Wolf McNally](https://www.github.com/wolfmcnally) and [Christopher Allen](https://www.github.com/ChristopherA)_
 
 **Version 0.1.0**<br/>**December 3, 2020**
 
 * <img src="https://github.com/BlockchainCommons/crypto-commons/blob/master/images/logos/crypto-commons-super-simple.png" width=16 valign="bottom">&nbsp;&nbsp; ***part of the [crypto commons](https://github.com/BlockchainCommons/crypto-commons/blob/master/README.md) technology family***
+
+![Build](https://github.com/BlockchainCommons/bytewords-cli/workflows/ci/badge.svg)
 
 ## Introduction
 
@@ -56,6 +58,32 @@ You must then download or clone this repo. Afterward, cd into the repo directory
 
 ```bash
 $ ./build.sh
+$ sudo make install
+```
+
+### Build on Linux
+
+Make sure you have `llvm`/`clang`, `libc++` and `libc++abi` installed, all with
+a minimum recommended version 10.
+
+#### Build on Ubuntu and Debian
+
+```bash
+$ sudo apt install build-essential
+
+$ wget https://apt.llvm.org/llvm.sh
+$ chmod +x llvm.sh
+$ sudo apt install lsb-release wget software-properties-common
+$ sudo ./llvm.sh 10  # version 10
+
+$ sudo apt-get install libc++-10-dev libc++abi-10-dev
+```
+
+```bash
+$ sudo apt-get install git
+$ git clone https://github.com/BlockchainCommons/bytewords-cli.git
+$ cd seedtool-cli/
+$ export CC="clang-10" && export CXX="clang++-10" && ./build.sh
 $ sudo make install
 ```
 

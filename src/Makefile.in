@@ -42,7 +42,17 @@ OBJS = \
 	utils.o \
 	params.o
 
-LDFLAGS += -lstdc++ -largp -lbc-crypto-base -lbc-bytewords
+LDLIBS += -lstdc++ -lbc-bytewords -largp -lbc-crypto-base
+
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linux)
+    LDLIBS += -lm -lc++ -lc++abi -lgcc_s -lgcc
+else ifeq ($(findstring MINGW64, $(UNAME)), MINGW64)
+    # on windows building with msys2/mingw64
+    LDLIBS += -lm -lc++ -lws2_32
+else
+    LDLIBS += -lstdc++
+endif
 
 $(toolname): $(OBJS)
 
