@@ -46,7 +46,7 @@ test2()
 # Eat all command-line arguments before calling shunit2.
 shift $#
 if [ "$(uname)" == "Darwin" ]; then
-. /usr/local/bin/shunit2
+. shunit2
 elif [ "$(uname)" == "Linux" ]; then
 # Linux
 . shunit2
