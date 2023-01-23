@@ -1,0 +1,4 @@
+src/libargp.a
+src/libbc-bytewords.a
+src/libbc-crypto-base.a
+src/bytewords

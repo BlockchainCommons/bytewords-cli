@@ -1,0 +1,9 @@
+bytewords-cli (0.1.0-1) UNRELEASED; urgency=medium
+
+  [ Nick Ochiel ]
+  * Initial release. (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+  [ success-machine ]
+  * 
+
+ -- Nick Ochiel <nochiel@users.noreply.github.com>  Tue, 29 Nov 2022 00:50:42 +0300

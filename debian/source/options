@@ -1,0 +1,4 @@
+extend-diff-ignore = "(\.*/)*.o"
+extend-diff-ignore = "src/Makefile.in"
+extend-diff-ignore = "deps/.*/Makefile"
+extend-diff-ignore = "deps/.*/config.(h|log|status)"

@@ -1,0 +1,25 @@
+Source: bytewords-cli
+Section: unknown
+Priority: optional
+Maintainer: Wolf McNally <Wolf@WolfMcNally.com>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ autotools-dev,
+ clang-14,
+ libc++1,
+ libc++abi1
+Standards-Version: 4.6.1
+Homepage: https://github.com/BlockchainCommons/bytewords-cli 
+#Vcs-Browser: https://salsa.debian.org/debian/bytewords-cli
+Vcs-Git: https://github.com/BlockchainCommons/bytewords-cli.git
+
+Package: bytewords-cli
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libclang-cpp14
+Description: A command line tool used to explore, test, and exercise Blockchain Commons' C reference implementation of the **Bytewords** encoding.
+ .
+ Bytewords is a method for encoding arbitary binary data in plain text as a sequence of common four-letter English words. Bytewords defines exactly 256 such words, one for each possible combination of bits in a byte (octet).
