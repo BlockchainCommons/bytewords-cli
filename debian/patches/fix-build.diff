@@ -1,0 +1,80 @@
+Description: <short summary of the patch>
+  .
+ keytool-cli (0.7.0-1) UNRELEASED; urgency=medium
+ .
+   * Initial release.
+Author: Nicholas Ochiel <nochiel@users.noreply.github.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: https://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: 2023-02-05
+
+--- bytewords-cli_0.1.0.orig/configure.ac
++++ bytewords-cli_0.1.0/configure.ac
+@@ -3,6 +3,7 @@
+ 
+ AC_PREREQ([2.69])
+ AC_INIT([keytool-cli], [0.7.0])
++AC_CONFIG_AUX_DIR([/usr/share/autoconf/build-aux])
+ AC_CONFIG_SRCDIR([src/keytool.cpp])
+ AC_CONFIG_HEADERS([src/config.h])
+ 
+--- bytewords-cli_0.1.0.orig/deps/argp-standalone/argp-standalone/argp-fmtstream.h
++++ bytewords-cli_0.1.0/deps/argp-standalone/argp-standalone/argp-fmtstream.h
+@@ -192,7 +192,7 @@ extern void __argp_fmtstream_update (arg
+ extern int _argp_fmtstream_ensure (argp_fmtstream_t __fs, size_t __amount);
+ extern int __argp_fmtstream_ensure (argp_fmtstream_t __fs, size_t __amount);
+ 
+-#ifdef __OPTIMIZE__
++#if defined(__OPTIMIZE__) && !defined(__clang__)
+ /* Inline versions of above routines.  */
+ 
+ #if !_LIBC
+--- bytewords-cli_0.1.0.orig/deps/bc-crypto-base/configure.ac
++++ bytewords-cli_0.1.0/deps/bc-crypto-base/configure.ac
+@@ -3,6 +3,7 @@
+ 
+ AC_PREREQ([2.69])
+ AC_INIT([bc-crypto-base], [0.2])
++AC_CONFIG_AUX_DIR([/usr/share/autoconf/build-aux])
+ AC_CONFIG_SRCDIR([src/sha2.c])
+ AC_CONFIG_HEADERS([config.h])
+--- bytewords-cli-0.1.0.orig/src/utils.cpp
++++ bytewords-cli-0.1.0/src/utils.cpp
+@@ -12,6 +12,9 @@
+ #include <sstream>
+ #include <chrono>
+ #include <array>
++#include <algorithm>
++#include <cstring>
++
+ #include <bc-bytewords/bc-bytewords.h>
+ 
+ using namespace std;
+@@ -107,7 +110,7 @@ ByteVector read_data_from_stdin() {
+     (void)freopen(nullptr, "rb", stdin);
+ 
+     if(ferror(stdin))
+-        throw runtime_error(strerror(errno));
++        throw runtime_error(std::strerror(errno));
+ 
+     size_t len;
+     array<char, 1024> buf;
+@@ -117,7 +120,7 @@ ByteVector read_data_from_stdin() {
+     while((len = fread(buf.data(), sizeof(buf[0]), buf.size(), stdin)) > 0)
+     {
+         if(ferror(stdin) && !feof(stdin))
+-            throw runtime_error(strerror(errno));
++            throw runtime_error(std::strerror(errno));
+ 
+         result.insert(result.end(), buf.data(), buf.data() + len); 
+     }
