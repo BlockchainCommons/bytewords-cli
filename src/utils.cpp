@@ -12,6 +12,9 @@
 #include <sstream>
 #include <chrono>
 #include <array>
+#include <algorithm>
+#include <cstring>
+
 #include <bc-bytewords/bc-bytewords.h>
 
 using namespace std;
@@ -107,7 +110,7 @@ ByteVector read_data_from_stdin() {
     (void)freopen(nullptr, "rb", stdin);
 
     if(ferror(stdin))
-        throw runtime_error(strerror(errno));
+        throw runtime_error(std::strerror(errno));
 
     size_t len;
     array<char, 1024> buf;
@@ -117,7 +120,7 @@ ByteVector read_data_from_stdin() {
     while((len = fread(buf.data(), sizeof(buf[0]), buf.size(), stdin)) > 0)
     {
         if(ferror(stdin) && !feof(stdin))
-            throw runtime_error(strerror(errno));
+            throw runtime_error(std::strerror(errno));
 
         result.insert(result.end(), buf.data(), buf.data() + len); 
     }
