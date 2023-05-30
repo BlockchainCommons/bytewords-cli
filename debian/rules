@@ -52,10 +52,10 @@ export LDFLAGS += -L${LIB}
 # 	./configure
 
 override_dh_auto_clean:
-	cd deps/bc-crypto-base && make distclean
-	cd deps/bc-bytewords && make distclean
-	cd deps/argp-standalone/argp-standalone && make distclean
-	[ -f ./Makefile ] && make clean || true
+	cd deps/bc-crypto-base && make distclean || true
+	cd deps/bc-bytewords && make distclean || true
+	cd deps/argp-standalone/argp-standalone && make distclean || true 
+	[ -f ./Makefile ] && make distclean || true
 
 override_dh_dwz:
 	true

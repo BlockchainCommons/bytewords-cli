@@ -5,6 +5,7 @@ AC_PREREQ([2.69])
 AC_INIT([bytewords-cli], [0.1.1])
 AC_CONFIG_SRCDIR([src/bytewords.cpp])
 AC_CONFIG_HEADERS([src/config.h])
+AC_CONFIG_AUX_DIR([/usr/share/libtool/build-aux])
 
 # Checks for programs.
 AC_PROG_CXX
